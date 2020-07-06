@@ -1,0 +1,43 @@
+h1.titleApp
+{
+	text-align: center;
+	color: green;
+}
+
+input.inputHeader
+{
+	width: 90px;
+}
+
+td.tdHeader
+{
+	width: 90px;	
+}
+
+section.sectionHeader
+{
+	margin-left: 300px; 
+}
+
+section.sectionMain
+{
+	margin-left: 200px; 
+}
+
+select.selectHeader
+{
+	width: 90px;	
+}
+
+td.tdInput
+{
+	width: 100px;
+	border-style: solid;
+	padding: 10px 0px;
+}
+
+input.inputMain
+{
+	margin: auto;
+	width: 100px;
+}
