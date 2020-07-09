@@ -24,47 +24,49 @@ var MainMenu = function()
 	var expectedResults;
 	var executionStepType;
 	var test; 		//Storage a string with the whole test
+	var testName;
 
 	this.order = "";
 	this.externalId = "";
 	this.fullExternalId = "";
-	this.version = "";
+	this.version = "1";
 	this.summary = "";
 	this.preConditions = "";
-	this.isOpen = "";
-	this.active = "";
+	this.isOpen = "1";
+	this.active = "1";
 	this.estimatedDuration = "";
-	this.executionType = "";
-	this.importance = "";
-	this.status = "";
+	this.executionType = "1";
+	this.importance = "2";
+	this.status = "1";
 	this.testHeader = "";
 	this.steps = [];
 	this.stepNumber = 0;
 	this.actions = "";
 	this.expectedResults = "";
-	this.executionStepType = "manual";
+	this.executionStepType = "Manual";
 	this.test = [];
+	this.testName = "";
 }
 
 MainMenu.prototype = 
 {
 	/*
-	addItem() set test properties
+	addItem() set test properties. Update same values is is not empty
 	*/
 	addHeaderItem : function(order,externalId,fullExternalId,version,summary,preConditions,isOpen,active,estimatedDuration,executionType,importance,status)
 	{
-		this.order = order;
-		this.externalId = externalId;
-		this.fullExternalId = fullExternalId;
-		this.version = version;
-		this.summary = summary;
-		this.preConditions = preConditions;
-		this.isOpen = isOpen;
-		this.active = active;
-		this.estimatedDuration = estimatedDuration;
-		this.executionType = executionType;
-		this.importance = importance;
-		this.status = status;
+		if(order!=""){this.order = order};
+		if(externalId!=""){this.externalId = externalId};
+		if(fullExternalId!=""){this.fullExternalId = fullExternalId};
+		if(version!=""){this.version = version};
+		if(summary!=""){this.summary = summary};
+		if(preConditions!=""){this.preConditions = preConditions};
+		if(isOpen!=""){this.isOpen = isOpen};
+		if(active!=""){this.active = active};
+		if(estimatedDuration!=""){this.estimatedDuration = estimatedDuration};
+		if(executionType!=""){this.executionType = executionType};
+		if(importance!=""){this.importance = importance};
+		if(status!=""){this.status = status};
 	},
 
 	/*
@@ -73,18 +75,18 @@ MainMenu.prototype =
 
 	headerBuild : function()
 	{
-		this.testHeader = '\n\t\t\t<node_order><![CDATA[' + this.order + ']]></node_order>' +
-    					'\n\t\t\t<externalid><![CDATA[' + this.externalId + ']]></externalid>' +
-    					'\n\t\t\t<fullexternalid><![CDATA[' + this.fullExternalId + ']]></fullexternalid>' +
-    					'\n\t\t\t<version><![CDATA[' + this.version + ']]></version>' +
-    					'\n\t\t\t<summary><![CDATA[' + this.summary + ']]></summary>' +
-    					'\n\t\t\t<preconditions><![CDATA[' + this.preConditions + ']]></preconditions>' +
-    					'\n\t\t\t<execution_type><![CDATA[' + this.executionType + ']]></execution_type>' +
-    					'\n\t\t\t<importance><![CDATA[' + this.importance + ']]></importance>' +
-    					'\n\t\t\t<estimated_exec_duration><![CDATA[' + this.estimatedDuration + ']]></estimated_exec_duration>' +
-    					'\n\t\t\t<status><![CDATA[' + this.status + ']]></status>' +
-    					'\n\t\t\t<is_open><![CDATA[' + this.isOpen + ']]></is_open>' +
-    					'\n\t\t\t<active><![CDATA[' + this.active + ']]></active>';
+		this.testHeader = '\n\t<node_order><![CDATA[' + this.order + ']]></node_order>' +
+    					'\n\t<externalid><![CDATA[' + this.externalId + ']]></externalid>' +
+    					'\n\t<fullexternalid><![CDATA[' + this.fullExternalId + ']]></fullexternalid>' +
+    					'\n\t<version><![CDATA[' + this.version + ']]></version>' +
+    					'\n\t<summary><![CDATA[' + this.summary + ']]></summary>' +
+    					'\n\t<preconditions><![CDATA[' + this.preConditions + ']]></preconditions>' +
+    					'\n\t<execution_type><![CDATA[' + this.executionType + ']]></execution_type>' +
+    					'\n\t<importance><![CDATA[' + this.importance + ']]></importance>' +
+    					'\n\t<estimated_exec_duration><![CDATA[' + this.estimatedDuration + ']]></estimated_exec_duration>' +
+    					'\n\t<status><![CDATA[' + this.status + ']]></status>' +
+    					'\n\t<is_open><![CDATA[' + this.isOpen + ']]></is_open>' +
+    					'\n\t<active><![CDATA[' + this.active + ']]></active>';
 	},
 
 	/*
@@ -111,15 +113,25 @@ MainMenu.prototype =
 			this.steps = "";
 		}else
 		{
-			this.steps += '\n\t\t\t<step>' +
-			 			'\n\t\t\t\t<step_number><![CDATA[' + this.stepNumber + ']]></step_number>' +
-			 			'\n\t\t\t\t<actions><![CDATA[' + this.actions + ']]></actions>' +
-			 			'\n\t\t\t\t<expectedresults><![CDATA[' + this.expectedResults + ']]></expectedresults>' +
-			 			'\n\t\t\t\t<execution_type><![CDATA[' + this.executionStepType + ']]></execution_type>' +
-			 			'\n\t\t\t</step>';
+			this.steps += '\n<step>' +
+			 			'\n\t<step_number><![CDATA[' + this.stepNumber + ']]></step_number>' +
+			 			'\n\t<actions><![CDATA[' + this.actions + ']]></actions>' +
+			 			'\n\t<expectedresults><![CDATA[' + this.expectedResults + ']]></expectedresults>' +
+			 			'\n\t<execution_type><![CDATA[' + this.executionStepType + ']]></execution_type>' +
+			 			'\n</step>';
 
 		}
 		
+	},
+
+
+	/*
+		add Parameters to testcases tag
+	*/
+
+	addTestParameter : function(testName)
+	{
+		this.testName = testName;
 	},
 
 	/*
@@ -129,10 +141,10 @@ MainMenu.prototype =
 	testBuild : function()
 	{
 		this.test[0] = '<?xml version="1.0" encoding="UTF-8"?>' ; 
-		this.test[1] = '\n\n\t <testcases>' + '\n\t\t<testcase>' ;
+		this.test[1] = '\n\n<testcases>' + '\n<testcase name="'+ this.testName +'" >' ;
 		this.test[2] = this.testHeader ;
-		this.test[3] = '\n\t\t\t<steps>' + this.steps + '\n\t\t</steps>' ;
-		this.test[4] = '\n\n\t\t </testcase>' + '\n\t</testcases>';
+		this.test[3] = '\n<steps>' + this.steps + '\n</steps>' ;
+		this.test[4] = '\n\n</testcase>' + '\n</testcases>';
 
 	},
 	/*
@@ -179,9 +191,9 @@ menu.testDownload(blob,"test.xml");
 
 */
 
-/*$(document).ready(function(){
-  $("input[name=parse]").click(function(){
-    $("div[name=actionBox]").hide();
-  });
-});*/
+/*
+-Test addTestParameter
+-Do control layer
+-Do model layer
+*/
 
