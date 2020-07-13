@@ -2,44 +2,42 @@
 	Control view
 */
 
+var menu = new MainMenu();
 
 /*
-order,
-externalId,
-fullExternalId,
-version,
-summary,
-preConditions,
-isOpen,
-active,
-estimatedDuration,
-executionType,
-importance,
-status
-var menu = new MainMenu();
-console.log("Before: ", menu.test)
-menu.addHeaderItem("1 ","2 ","3 ","4 ","5 ","6 ","7 ","8 ","9 ","10 ","11 ","12 ");
-menu.headerBuild();
-menu.addStepItem("place jump","","manual");
-menu.stepBuild();
-menu.addStepItem("facmode","enable","automated");
-menu.stepBuild();
-menu.addStepItem("clear all","","automated");
-menu.stepBuild();
-menu.testBuild();
-console.log("Later: ", menu.test);
 
 */
+let correctTable = function()
+{
+	let tabela;
+	let actions;
+	let expectedResults;
+	let executionStepType;
 
-var menu = new MainMenu();
 
+	colunas = document.querySelectorAll('td');
+
+	menu.stepClear();
+
+	for(i=1; i<colunas.length; i+=4)
+	{
+		actions = colunas[i].textContent;
+		expectedResults = colunas[i+1].textContent;
+		executionStepType = colunas[i+2].textContent;
+
+		menu.addStepItem(actions, expectedResults, executionStepType);
+		menu.stepBuild();
+	}
+	showSteps();
+//	console.log(menu.steps);
+}
 
 let showSteps = function()
 {
 	let table;
 	let step;
 	
-	step = '<table border="2" border-style="solid"><thead><th>STEP NUMBER</th><th>ACTIONS</th><th>EXPECTED RESULTS</th><th>EXECUTION STEP TYPE</th></thead><tbody>' +
+	step = '<table border="2" border-style="solid" contentEditable="true" name="tableSteps"><thead><th>STEP NUMBER</th><th>ACTIONS</th><th>EXPECTED RESULTS</th><th>EXECUTION STEP TYPE</th></thead><tbody>' +
 	menu.steps.replace(/step/g, "tr").replace(/tr_number/g, "td").replace(/actions/g, "td").replace(/expectedresults/g, "td").replace(/execution_type/g, "td").replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "") +
 	'</tbody></table>'
 	table = $("section[name=preView]")[0];
@@ -95,14 +93,9 @@ let downloadTest = function()
 	importance = $("select[name=importance]")[0].selectedIndex;
 	status = $("select[name=status]")[0].selectedIndex;
 	nameFile = testName + ".xml";
-/*
-	switch(status)
-	{
-		case 'Draft':
-			status = "1";
-		break;
-	}
-*/
+
+
+
 	menu.addHeaderItem(order, externalId, fullExternalId, version, summary, preConditions, isOpen, active, estimatedDuration, executionType, importance, status);
 	menu.headerBuild();
 	menu.addTestParameter(testName);
@@ -117,6 +110,8 @@ $(document).ready(function(){
 
 	$("input[name=insertButton]").click(insertStep);
 
-	$("input[name=downloadButton]").click(downloadTest);  
+	$("input[name=downloadButton]").click(downloadTest);
+
+	$("input[name=updateButton]").click(correctTable);  
 
 });

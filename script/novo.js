@@ -124,6 +124,16 @@ MainMenu.prototype =
 		
 	},
 
+	/*
+		stepClear reset steps
+	*/
+
+	stepClear : function()
+	{
+		this.stepNumber = 0;
+		this.steps = "";
+	},
+
 
 	/*
 		add Parameters to testcases tag
