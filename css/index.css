@@ -88,7 +88,7 @@ body
 	width: 975px;
 	height: 500px;
 	position: relative;
-	bottom: 393px;
+	bottom: 117px;/*232px use white hard edit is selected*/
 	left: 315px;
 }
 
@@ -130,7 +130,7 @@ body
 	text-align: center;
 	width: 450px;
 	position: relative;
-	bottom: 580px;
+	bottom: 54px;/*580px*/
 	left: 454px;
 	border-style: solid;
 }
@@ -188,7 +188,7 @@ body
 	*/
 	
 	position: relative;
-	bottom: 608px;
-	left: 317px;
+	bottom: 0px;
+	left: 0px;
 }
 

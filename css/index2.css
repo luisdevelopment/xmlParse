@@ -1,0 +1,219 @@
+
+body
+{
+	font-family: "Lucinda Sans Unicode", "Lucinda Grande", sans-serif;
+}
+
+/*Page Content*/
+.appContent
+{
+/*	background-color: red; */
+	width: 1265px;
+	height: 2000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
+/*Formating Footer */
+.footerHeader
+{
+	background-color: green;
+	color: white;
+	height: 50px;
+	text-align: center;
+}
+
+.footerHeader>h1
+{
+	font-size: 35pt;
+}
+
+
+
+
+
+
+/*Formating Header Menu*/
+.h2HeaderMenu
+{
+	background-color: #98FB98;
+	text-align: center;
+	width: 315px;
+/*	border-style: solid;*/
+	border-bottom: solid;
+	margin-top: 0px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Header Menu*/
+.header
+{
+	width: 315px;
+	height:200px;
+	background-color: grey;
+	float: left;
+	margin-top: 0px;
+	border-style: solid;
+}
+
+.menuItem
+{
+	background-color: white;
+	width: 200px;
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 2px;
+	height: 20px;
+	font-size: 20px;
+
+}
+
+.inputHeader
+{
+	margin-bottom: 2px;
+	width: 90px;
+	height: 15px;
+}
+
+
+/*Test*/
+.test
+{
+/*	background-color: yellow;*/
+	width: 941px;
+/*	height:200px;*/
+	float: left;
+	margin-left: 0px;
+	border-style: solid;
+	border-left: none;
+}
+
+
+
+
+
+
+
+/*Main Menu*/
+.mainMenuHeader
+{
+	background-color: blue;
+	height: 30px;
+	width: 946px;
+	float: right;
+}
+
+
+.divMainMenu
+{
+/*	background-color: blue;*/
+	width: 946px;
+	float: right;
+}
+
+.h2Actions
+{
+	background-color: #98FB98;
+	text-align: center;
+	width: 468px;
+	border-style: solid;
+	margin-top: 0px;
+	border-top: none;
+	float: left;
+}
+
+.divActions
+{
+/*	background-color: green;*/
+	width: 468px;
+	height: 100px;
+	float: left;
+	border-style: solid;
+	border-top: none;
+	margin-left: 0px;
+	margin-top: 0px;
+	overflow: hidden;
+}
+
+.h2ExpectedResults
+{
+	background-color: #98FB98;
+	text-align: center;
+	width: 468px;
+	border-style: solid;
+	float: left;
+	margin-top: 0px;
+	border-top: none;
+	border-left: none;
+}
+
+.divExpectedResults
+{
+/*	background-color: orange;*/
+	width: 468px;
+	height: 100px;
+	border-style: solid;
+	border-top: none;
+	float: left;
+	border-left: none;
+	margin-left: 0px;
+	margin-top: 0px;
+	overflow: hidden;
+}
+
+/*Control Buttons*/
+.controlButtons
+{
+/*	background-color: yellow;*/
+	clear: both;
+	float: left;
+	width: 468px;
+	height: 50px;
+	margin-left: 319px;
+}
+
+input[name="insertButton"]
+{
+	background-color: #98FB98;
+	margin-left: 20px;
+	margin-top: 20px;
+	height: 30px;
+	width: 30px;
+	border-radius: 100px;
+}
+
+input[name="editHeaderButton"]
+{
+	background-color: #98FB98;
+	margin-left: 20px;
+	margin-top: 20px;
+	height: 30px;
+	width: 80px;
+	border-radius: 100px;
+}
+
+input[name="downloadButton"]
+{
+	background-color: #98FB98;
+	margin-left: 20px;
+	margin-top: 20px;
+	height: 30px;
+	width: 80px;
+	border-radius: 100px;
+}
+
+
+

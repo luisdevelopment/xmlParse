@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Test Link Tools</title>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/index2.css">
 	<meta charset="utf-8">
 </head>
 <body>
@@ -11,23 +11,19 @@
 <script type="text/javascript" src="script/index.js"></script>
 
 
-<!--page content-->
-<div class="pageContent">
+<div class="appContent">
+	
 	<!--header-->
 	<footer class="footerHeader">
-		<h1 class="titleApp">XML BUILDER</h1>	
+		<h1 class="titleApp">XML BUILDER</h1>
 	</footer>
 
 
-
-			
-			
-			
 	<!--header menu-->
-	<h2 class="h2HeaderMenu">header menu</h2>
-	<section class="sectionHeaderMenu">
+	<div class="header">
+		<h2 class="h2HeaderMenu">header menu</h2>
 		<div class="menuItem">TEST NAME</div><input type="text" name="testName" class="inputHeader">
-		<!--<div class="menuItem">ORDER</div><input type="text" name="order" class="inputHeader">-->
+		<div class="menuItem" hidden="hidden">ORDER</div><input type="text" name="order" class="inputHeader" hidden="hidden">
 		<div class="menuItem" hidden="hidden">EXTERNAL ID</div><input type="text" name="externalId" class="inputHeader" hidden="hidden">
 		<div class="menuItem" hidden="hidden">FULL EXTERNAL ID</div><input type="text" name="fullExternalId" class="inputHeader" hidden="hidden">
 		<div class="menuItem" hidden="hidden">VERSION</div><input type="text" name="version" class="inputHeader" hidden="hidden">
@@ -59,54 +55,38 @@
 				<option>Future</option>
 				<option>Final</option>
 			</select>
-		
-	</section>
-	
-
-				
-				
-			
+	</div>
 
 
 
+	<div class="test" name="preView">
 
+	</div>
+
+
+	<!--Main menu footer descrition-->
+	<div class="mainMenuHeader">
+		<h2 class="h2Actions">actions</h2>
+		<h2 class="h2ExpectedResults">expected results</h2>
+	</div>
 
 	<!--main menu-->
-	<section class="sectionMainMenu">
-		<h2 class="h2Actions">actions</h2>
-		<div class="divActions" name="actions" contenteditable="true" hidden="hidden"></div>
-		<h2 class="h2ExpectedResults">expected results</h2>
-		<div class="divExpectedResults" name="expectedResults" contenteditable="true" hidden="hidden"></div>
+	<div class="divMainMenu">
+		<div class="divActions" name="actions" contenteditable="true"></div>
+		<div class="divExpectedResults" name="expectedResults" contenteditable="true"></div>
 		<div class="divControl"></div>
-	</section>
-	
+	</div>
 
-	<!--pre view-->
-	<section class="sectionPreView" name="preView">
-
-
-	<!--control menu-->
-	<h2 class="h2ControlMenu">control menu</h2>
-	<section class="sectionControlMenu">
-		<input type="button" name="insertButton" value="insert" class="inputHeader">
-		<input type="button" name="downloadButton" value="download" class="inputHeader inputMain">
-		<input type="button" name="updateButton" value="update" class="inputHeader inputMain">
-		<input type="button" name="editDetailsButton" value="hard edit" class="inputHeader inputMain">
-		<select name="executionStepType" class="selectHeader">
+	<div class="controlButtons">
+		<input type="button" name="insertButton" value="+" class="inputHeader">
+		<input type="button" name="editHeaderButton" value="edit header" class="inputHeader">
+		<input type="button" name="downloadButton" value="download" class="inputHeader">
+		<select name="executionStepType" class="selectHeader" hidden="hidden">
 			<option>Manual</option>
 			<option>Automated</option>
 		</select>
-	</section>
-
-
-
-
-
-	
-		
-	</section>
+	</div>
 </div>
-
 
 
 </body>

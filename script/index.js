@@ -42,7 +42,7 @@ let showSteps = function()
 	step = '<table border="2" border-style="solid" contentEditable="true" name="tableSteps"><thead><th>STEP NUMBER</th><th>ACTIONS</th><th>EXPECTED RESULTS</th><th>EXECUTION STEP TYPE</th></thead><tbody>' +
 	menu.steps.replace(/step/g, "tr").replace(/tr_number/g, "td name=\"stepnumber\" ").replace(/actions/g, "td name=\"actions\" ").replace(/expectedresults/g, "td name=\"expectedResults\"").replace(/execution_type/g, "td name=\"executionStepType\" ").replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "") +
 	'</tbody></table>'
-	table = $("section[name=preView]")[0];
+	table = $("div[name=preView]")[0];
 	//console.log(menu.steps);
 
 	table.innerHTML = step;
@@ -114,6 +114,7 @@ $(document).ready(function(){
 
 	$("input[name=downloadButton]").click(downloadTest);
 
-	$("input[name=updateButton]").click(correctTable);  
+//	$("input[name=updateButton]").click(correctTable);
+//	$("input[name=editHeaderButton]").click(correctTable);  
 
 });
