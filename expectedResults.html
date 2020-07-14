@@ -12,10 +12,10 @@
 	<table name="tableSteps" contenteditable="true" border="1">
 		<thead><th>STEP NUMBER</th><th>ACTIONS</th><th>EXPECTED RESULTS</th><th>EXECUTION TYPE</th></thead>
 		<tbody>
-			<tr><td>1</td><td>Ação1</td><td>Resultado1</td><td>manual</td></tr>
-			<tr><td>2</td><td>Ação2</td><td>Resultado2</td><td>manual</td></tr>
-			<tr><td>3</td><td>Ação3</td><td>Resultado3</td><td>manual</td></tr>
-			<tr><td>4</td><td>Ação4</td><td>Resultado4</td><td>manual</td></tr>
+			<tr><td>1</td><td name="actions">Ação1</td><td name="expectedResults">Resultado1</td><td name="executionStepType">manual</td></tr>
+			<tr><td>2</td><td name="actions">Ação2</td><td name="expectedResults">Resultado2</td><td name="executionStepType">manual</td></tr>
+			<tr><td>3</td><td name="actions">Ação3</td><td name="expectedResults">Resultado3</td><td name="executionStepType">manual</td></tr>
+			<tr><td>4</td><td name="actions">Ação4</td><td name="expectedResults">Resultado4</td><td name="executionStepType">manual</td></tr>
 		</tbody>
 	</table>
 
@@ -27,25 +27,25 @@ var menu = new MainMenu();
 	
 let correctTable = function()
 {
-	let tabela;
-	let actions;
-	let expectedResults;
-	let executionStepType;
+	var tabela;
+	var actions;
+	var expectedResults;
+	var executionStepType;
 
 
-	colunas = document.querySelectorAll('td');
+	colunas = document.querySelectorAll('td[name=actions]');
 
 	menu.stepClear();
 	
-	for(i=1; i<colunas.length; i+=4)
+	for(i=0; i<colunas.length; i++)
 	{
-		actions = colunas[i].textContent;
-		expectedResults = colunas[i+1].textContent;
-		executionStepType = colunas[i+2].textContent;
+		actions = $("td[name=actions]").eq(i).html();//.html();
+		expectedResults = $("td[name=expectedResults]").eq(i).html();
+		executionStepType = $("td[name=executionStepType]").eq(i).html();
 
 		menu.addStepItem(actions, expectedResults, executionStepType);
 		menu.stepBuild();
-//		console.log(executionStepType);
+		console.log(actions);
 	}
 
 	console.log(menu.steps);

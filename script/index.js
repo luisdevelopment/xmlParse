@@ -5,25 +5,27 @@
 var menu = new MainMenu();
 
 /*
-
+ 
 */
 let correctTable = function()
 {
-	let tabela;
+	let columActions;
 	let actions;
 	let expectedResults;
 	let executionStepType;
+	let stepCounter;
 
-
-	colunas = document.querySelectorAll('td');
+	stepCounter = document.querySelectorAll('td[name=actions]');
 
 	menu.stepClear();
 
-	for(i=1; i<colunas.length; i+=4)
+	for(i=0; i<stepCounter.length; i++)
 	{
-		actions = colunas[i].textContent;
-		expectedResults = colunas[i+1].textContent;
-		executionStepType = colunas[i+2].textContent;
+		actions = $('td[name=actions]').eq(i).html();
+		expectedResults = $('td[name=expectedResults]').eq(i).html();
+		executionStepType = $('td[name=executionStepType]').eq(i).html();
+
+		console.log(actions)
 
 		menu.addStepItem(actions, expectedResults, executionStepType);
 		menu.stepBuild();
@@ -38,14 +40,14 @@ let showSteps = function()
 	let step;
 	
 	step = '<table border="2" border-style="solid" contentEditable="true" name="tableSteps"><thead><th>STEP NUMBER</th><th>ACTIONS</th><th>EXPECTED RESULTS</th><th>EXECUTION STEP TYPE</th></thead><tbody>' +
-	menu.steps.replace(/step/g, "tr").replace(/tr_number/g, "td").replace(/actions/g, "td").replace(/expectedresults/g, "td").replace(/execution_type/g, "td").replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "") +
+	menu.steps.replace(/step/g, "tr").replace(/tr_number/g, "td name=\"stepnumber\" ").replace(/actions/g, "td name=\"actions\" ").replace(/expectedresults/g, "td name=\"expectedResults\"").replace(/execution_type/g, "td name=\"executionStepType\" ").replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "") +
 	'</tbody></table>'
 	table = $("section[name=preView]")[0];
 	//console.log(menu.steps);
 
 	table.innerHTML = step;
 }
-
+ 
 let insertStep = function()
 {
 	//Get rendering elements
