@@ -48,20 +48,11 @@ body
 }
 
 
-
-
-
-
-
-
-
-
-
 /*Header Menu*/
 .header
 {
 	width: 315px;
-	height:200px;
+	height:250px;/*200px*/
 	background-color: grey;
 	float: left;
 	margin-top: 0px;
@@ -87,6 +78,32 @@ body
 	width: 90px;
 	height: 15px;
 }
+
+
+input[name="editHeaderButton"]
+{
+/*	background-color: #98FB98;*/
+	margin-left: 20px;
+	margin-top: 5px;
+	height: 30px;
+	width: 80px;
+	border-radius: 100px;
+}
+
+input[name="hiddenHeaderButton"]
+{
+/*	background-color: #98FB98;*/
+	margin-left: 20px;
+	margin-top: 5px;
+	height: 30px;
+	width: 100px;
+	border-radius: 100px;
+}
+
+
+
+
+
 
 
 /*Test*/
@@ -180,7 +197,7 @@ body
 /*	background-color: yellow;*/
 	clear: both;
 	float: left;
-	width: 468px;
+	width: 500px;
 	height: 50px;
 	margin-left: 319px;
 }
@@ -195,7 +212,7 @@ input[name="insertButton"]
 	border-radius: 100px;
 }
 
-input[name="editHeaderButton"]
+input[name="downloadButton"]
 {
 	background-color: #98FB98;
 	margin-left: 20px;
@@ -205,7 +222,7 @@ input[name="editHeaderButton"]
 	border-radius: 100px;
 }
 
-input[name="downloadButton"]
+input[name="editXmlButton"]
 {
 	background-color: #98FB98;
 	margin-left: 20px;
@@ -213,6 +230,17 @@ input[name="downloadButton"]
 	height: 30px;
 	width: 80px;
 	border-radius: 100px;
+}
+
+input[name="xmlFile"]
+{
+/*	background-color: #98FB98;*/
+	margin-left: 20px;
+	margin-top: 20px;
+	content: 'import xml';
+	/*height: 30px;*/
+	width: 300px;
+/*	border-radius: 100px;*/
 }
 
 

@@ -22,13 +22,13 @@
 	<!--header menu-->
 	<div class="header">
 		<h2 class="h2HeaderMenu">header menu</h2>
-		<div class="menuItem">TEST NAME</div><input type="text" name="testName" class="inputHeader">
+		<div class="menuItem">TEST NAME</div><input type="text" name="testName" class="inputHeader" required="required">
 		<div class="menuItem" hidden="hidden">ORDER</div><input type="text" name="order" class="inputHeader" hidden="hidden">
-		<div class="menuItem" hidden="hidden">EXTERNAL ID</div><input type="text" name="externalId" class="inputHeader" hidden="hidden">
-		<div class="menuItem" hidden="hidden">FULL EXTERNAL ID</div><input type="text" name="fullExternalId" class="inputHeader" hidden="hidden">
-		<div class="menuItem" hidden="hidden">VERSION</div><input type="text" name="version" class="inputHeader" hidden="hidden">
-		<div class="menuItem" hidden="hidden">SUMMARY</div><input type="text" name="summary" class="inputHeader" hidden="hidden">
-		<div class="menuItem" hidden="hidden">PRE CONDITIONS</div><input type="text" name="preConditions" class="inputHeader" hidden="hidden">
+		<div class="menuItem" hidden="hidden" name="divExternalId">EXTERNAL ID</div><input type="text" name="externalId" class="inputHeader" hidden="hidden">
+		<div class="menuItem" hidden="hidden" name="divFullExternalId">FULL EXTERNAL ID</div><input type="text" name="fullExternalId" class="inputHeader" hidden="hidden">
+		<div class="menuItem" hidden="hidden" name="divVersion">VERSION</div><input type="text" name="version" class="inputHeader" hidden="hidden">
+		<div class="menuItem" hidden="hidden" name="divSummary">SUMMARY</div><input type="text" name="summary" class="inputHeader" hidden="hidden">
+		<div class="menuItem" hidden="hidden" name="divPreConditions">PRE CONDITIONS</div><input type="text" name="preConditions" class="inputHeader" hidden="hidden">
 		<div class="menuItem" hidden="hidden">IS OPEN</div><input type="text" name="isOpen" class="inputHeader" hidden="hidden">
 		<div class="menuItem" hidden="hidden">ACTIVE</div><input type="text" name="active" class="inputHeader" hidden="hidden">
 		<div class="menuItem" hidden="hidden">ESTIMATED DURATION</div><input type="text" name="estimatedDuration" class="inputHeader" hidden="hidden">
@@ -55,6 +55,8 @@
 				<option>Future</option>
 				<option>Final</option>
 			</select>
+			<input type="button" name="editHeaderButton" value="edit header" class="inputHeader">
+			<input type="button" name="hiddenHeaderButton" value="hidden header" class="inputHeader" hidden="hidden">
 	</div>
 
 
@@ -79,8 +81,9 @@
 
 	<div class="controlButtons">
 		<input type="button" name="insertButton" value="+" class="inputHeader">
-		<input type="button" name="editHeaderButton" value="edit header" class="inputHeader">
 		<input type="button" name="downloadButton" value="download" class="inputHeader">
+<!--		<input type="button" name="editXmlButton" value="editXML" class="inputHeader">-->
+		<input type="file" name="xmlFile" class="inputHeader" accept=".xml">
 		<select name="executionStepType" class="selectHeader" hidden="hidden">
 			<option>Manual</option>
 			<option>Automated</option>
