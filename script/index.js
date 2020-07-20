@@ -50,6 +50,7 @@ let showSteps = function()
  
 let insertStep = function()
 {
+	correctTable();
 	//Get rendering elements
 	let actions = $("div[name=actions]").html();
 	let expectedResults = $("div[name=expectedResults]").html();
