@@ -39,8 +39,8 @@ let showSteps = function()
 	let table;
 	let step;
 	
-	step = '<table border="2" border-style="solid" contentEditable="true" name="tableSteps"><thead><th>STEP NUMBER</th><th>ACTIONS</th><th>EXPECTED RESULTS</th><th>EXECUTION STEP TYPE</th></thead><tbody>' +
-	menu.steps.replace(/step/g, "tr").replace(/tr_number/g, "td name=\"stepnumber\" ").replace(/actions/g, "td name=\"actions\" ").replace(/expectedresults/g, "td name=\"expectedResults\"").replace(/execution_type/g, "td name=\"executionStepType\" ").replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "") +
+	step = '<table border="2" border-style="solid" name="tableSteps" class="simple"><thead><th>STEP NUMBER</th><th>ACTIONS</th><th>EXPECTED RESULTS</th><th hidden=\"hidden\" >EXECUTION STEP TYPE</th></thead><tbody>' +
+	menu.steps.replace(/step/g, "tr").replace(/tr_number/g, "td name=\"stepnumber\" contentEditable=\"true\"").replace(/actions/g, "td name=\"actions\" contentEditable=\"true\"").replace(/expectedresults/g, "td name=\"expectedResults\" contentEditable=\"true\"").replace(/execution_type/g, "td hidden=\"hidden\" name=\"executionStepType\" ").replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "") +
 	'</tbody></table>'
 	table = $("div[name=preView]")[0];
 	//console.log(menu.steps);
