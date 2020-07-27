@@ -192,43 +192,56 @@ editXml = function()
 
     importedXml.onload = function()
     {
-    	textXml = importedXml.result;
-    	xmlDoc = parser.parseFromString(textXml,"text/xml"); //storage in xmlDoc xml Dom elements
-    	//testName = $("input[name=testName]")[0].value;
-		order = xmlDoc.getElementsByTagName("node_order")[0].childNodes[0].nodeValue;
-		externalId = xmlDoc.getElementsByTagName("externalid")[0].childNodes[0].nodeValue;
-		fullExternalId = xmlDoc.getElementsByTagName("fullexternalid")[0].childNodes[0].nodeValue;
-		version = xmlDoc.getElementsByTagName("version")[0].childNodes[0].nodeValue;
-		summary = xmlDoc.getElementsByTagName("summary")[0].childNodes[0].nodeValue;
-		preConditions = xmlDoc.getElementsByTagName("preconditions")[0].childNodes[0].nodeValue;
-		isOpen = xmlDoc.getElementsByTagName("execution_type")[0].childNodes[0].nodeValue;
-		active = xmlDoc.getElementsByTagName("importance")[0].childNodes[0].nodeValue;
-		//estimatedDuration = xmlDoc.getElementsByTagName("estimated_exec_duration")[0].childNodes[0].nodeValue;
-		executionType = xmlDoc.getElementsByTagName("status")[0].childNodes[0].nodeValue;
-		importance = xmlDoc.getElementsByTagName("is_open")[0].childNodes[0].nodeValue;
-		status = xmlDoc.getElementsByTagName("active")[0].childNodes[0].nodeValue;
-    	
-    	menu.addHeaderItem(order, externalId, fullExternalId, version, summary, preConditions, isOpen, active, estimatedDuration, executionType, importance, status);
-
-		for(let i=0; i<xmlDoc.getElementsByTagName("actions").length; i++)
-		{
-			actions = xmlDoc.getElementsByTagName("actions")[i].childNodes[0].nodeValue;
-			expectedResults = xmlDoc.getElementsByTagName("expectedresults")[i].childNodes[0].nodeValue;
-			executionStepType = xmlDoc.getElementsByTagName("execution_type")[i+1].childNodes[0].nodeValue;
-			console.log(actions, expectedResults, executionStepType);
-
-			menu.addStepItem(actions, expectedResults, executionStepType);
-			menu.stepBuild();
-		}
-
-		showSteps();
-		console.log(importedXml.result);
-		
-    };
+    	try
+    	{
+    		textXml = importedXml.result;
+    		xmlDoc = parser.parseFromString(textXml,"text/xml"); //storage in xmlDoc xml Dom elements
+    		//testName = $("input[name=testName]")[0].value;
+			order = xmlDoc.getElementsByTagName("node_order")[0].childNodes[0].nodeValue;
+			externalId = xmlDoc.getElementsByTagName("externalid")[0].childNodes[0].nodeValue;
+			//
+			if(xmlDoc.getElementsByTagName("fullexternalid")[0] == undefined)
+			{
+				fullExternalId = "aaaa";
+				//throw "Export Type Invalid!";
+			}else
+			{
+				fullExternalId = xmlDoc.getElementsByTagName("fullexternalid")[0].childNodes[0].nodeValue;
+			}
+			version = xmlDoc.getElementsByTagName("version")[0].childNodes[0].nodeValue;
+			summary = xmlDoc.getElementsByTagName("summary")[0].childNodes[0].nodeValue;
+			preConditions = xmlDoc.getElementsByTagName("preconditions")[0].childNodes[0].nodeValue;
+			isOpen = xmlDoc.getElementsByTagName("execution_type")[0].childNodes[0].nodeValue;
+			active = xmlDoc.getElementsByTagName("importance")[0].childNodes[0].nodeValue;
+			//estimatedDuration = xmlDoc.getElementsByTagName("estimated_exec_duration")[0].childNodes[0].nodeValue;
+			executionType = xmlDoc.getElementsByTagName("status")[0].childNodes[0].nodeValue;
+			importance = xmlDoc.getElementsByTagName("is_open")[0].childNodes[0].nodeValue;
+			status = xmlDoc.getElementsByTagName("active")[0].childNodes[0].nodeValue;
+	    	
+    		menu.addHeaderItem(order, externalId, fullExternalId, version, summary, preConditions, isOpen, active, estimatedDuration, executionType, importance, status);
+	
+			for(let i=0; i<xmlDoc.getElementsByTagName("actions").length; i++)
+			{
+				actions = xmlDoc.getElementsByTagName("actions")[i].childNodes[0].nodeValue;
+				expectedResults = xmlDoc.getElementsByTagName("expectedresults")[i].childNodes[0].nodeValue;
+				executionStepType = xmlDoc.getElementsByTagName("execution_type")[i+1].childNodes[0].nodeValue;
+				console.log(actions, expectedResults, executionStepType);
+	
+				menu.addStepItem(actions, expectedResults, executionStepType);
+				menu.stepBuild();
+			}
+	
+			showSteps();
+			console.log(importedXml.result);
+    	}catch(e)
+    	{
+    		alert(e);
+    	}		
+    };//import.onload
     
     importedXml.readAsText(xmlFile.files[0]);
       
-}
+}//End xmlEdit
 
 
 
